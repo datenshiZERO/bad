@@ -54,6 +54,8 @@ Map.prototype = {
         if (this.grid[x][y] === 2) {
           // TODO fix magic numbers
           currentCell.html("P");
+        } else {
+          currentCell.html("");
         }
       }
     }
@@ -65,9 +67,43 @@ Map.prototype = {
         if (!this.isWall(x, y)) {
           // TODO fix magic numbers
           this.grid[x][y] = 2;
+          player.x = x;
+          player.y = y;
           return;
         }
       }
     }
+  },
+  movePlayerUp: function() {
+    var player = this.entities[0];
+    if (player.y === 0 || this.isWall(player.x, player.y - 1)) return;
+    this.grid[player.x][player.y] = 1;
+    this.grid[player.x][player.y - 1] = 2;
+    player.y--;
+    this.drawEntities();
+  },
+  movePlayerDown: function() {
+    var player = this.entities[0];
+    if (player.y === this.height - 1 || this.isWall(player.x, player.y + 1)) return;
+    this.grid[player.x][player.y] = 1;
+    this.grid[player.x][player.y + 1] = 2;
+    player.y++;
+    this.drawEntities();
+  },
+  movePlayerLeft: function() {
+    var player = this.entities[0];
+    if (player.x === 0 || this.isWall(player.x - 1, player.y)) return;
+    this.grid[player.x][player.y] = 1;
+    this.grid[player.x - 1][player.y] = 2;
+    player.x--;
+    this.drawEntities();
+  },
+  movePlayerRight: function() {
+    var player = this.entities[0];
+    if (player.x === this.width - 1 || this.isWall(player.x + 1, player.y)) return;
+    this.grid[player.x][player.y] = 1;
+    this.grid[player.x + 1][player.y] = 2;
+    player.x++;
+    this.drawEntities();
   }
 }
