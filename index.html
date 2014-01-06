@@ -10,6 +10,7 @@
         height: 30px;
         width: 30px;
         border: 1px solid #333;
+        text-align: center;
       }
       #map-grid tr td.wall {
         background-color: gray;
@@ -19,22 +20,13 @@
   <body>
     <div id="map-container"></div>
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript" src="src/engine/player.js"></script>
     <script type="text/javascript" src="src/engine/map.js"></script>
     <script type="text/javascript">
+      var testPlayer = new Player();
       var testMap = new Map(10, 10);
-      $("#map-container").append($("<table>", { id: "map-grid" }));
-      for (var y = 0; y < testMap.height; y++) {
-        $("#map-grid").append($("<tr>", { id: "map-row-" + y }));
-        for (var x = 0; x < testMap.width; x++) {
-          $("#map-row-" + y).append(
-            $("<td>", { 
-                id: "map-cell-" + y + "-" + x, 
-                class: (testMap.isWall(x, y) ? "wall" : "")
-              }
-            )
-          );
-        }
-      }
+      testMap.addPlayer(testPlayer);
+      testMap.drawMap("map-container");
     </script>
   </body>
 </html>
