@@ -2,9 +2,10 @@ function Map(width, height) {
   this.width = width;
   this.height = height;
   this.grid = new Array(height);
+  var WALL_PERCENTAGE = 0.5;
   for (var y = 0; y < height; y++) {
     this.grid[y] = new Array(width);
-    for (var x = 0; x < width; x++) this.grid[y][x] = 0;
+    for (var x = 0; x < width; x++) this.grid[y][x] = (Math.random() < WALL_PERCENTAGE ? 0 : 1);
   }
 }
 Map.isWallElement = function(cellValue) {
