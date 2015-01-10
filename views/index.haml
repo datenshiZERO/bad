@@ -1,0 +1,62 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "IE=Edge,chrome=1", "http-equiv" => "X-UA-Compatible"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %title BAd
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "", :property => "og:title"}/
+    %meta{:content => "", :property => "og:description"}/
+    %meta{:content => "website", :property => "og:type"}/
+    %meta{:content => "http://games.bryanbibat.net/bad/", :property => "og:url"}/
+    %meta{:content => image_path("opengraph.png"), :property => "og:image"}/
+    %meta{:content => "200", :property => "og:image:width"}/
+    %meta{:content => "200", :property => "og:image:height"}/
+    %link{:href => "./favicon.ico", :rel => "shortcut icon"}/
+    %link{:href => stylesheet_path("app"), :rel => "stylesheet", :type => "text/css"}/
+    %script{:type => "text/javascript", :src => javascript_path("app")}
+  %body
+    .navbar.navbar-static-top.navbar-default
+      .container
+        .navbar-header
+          %button.navbar-toggle{ "type" => "button", "data-toggle" => "collapse", "data-target" => ".navbar-collapse" }
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a{ :href => "./", :class => "navbar-brand" } BAd
+        .navbar-collapse.collapse
+          %ul.nav.navbar-nav
+            -#%li{ :class => (controller_name == "events" ? "active" : "") }= link_to "Events", events_url
+
+    .container.main-container
+      .row
+        .col-sm-12
+          %p 
+            TEXT HERE
+            %i.glyphicon.glyphicon-search
+    %footer
+      .container
+        %p
+          &copy; 2014 - 2015
+          %a{ :href => "http://bryanbibat.net" } Bryan Bibat
+
+    - if ENV['RACK_ENV'] == 'production'
+      / Piwik
+      :javascript
+        var _paq = _paq || [];
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+          var u=(("https:" == document.location.protocol) ? "https" : "http") + "://analytics.bryanbibat.net/";
+          _paq.push(['setTrackerUrl', u+'piwik.php']);
+          _paq.push(['setSiteId', 12]);
+          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+          g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+        })();
+      %noscript
+        %p
+          %img{:alt => "", :src => "http://analytics.bryanbibat.net/piwik.php?idsite=12", :style => "border:0;"}/
+      / End Piwik Code
+
