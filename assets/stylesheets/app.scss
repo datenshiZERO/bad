@@ -1,13 +1,20 @@
 @import "bootstrap";
 
-.card {
+.bordered {
   border: 1px solid #ddd;
   border-radius: 4px;
-  padding: 10px 10px 0px 10px;
+  padding: 10px 6px 0px 6px;
+  margin-bottom: 6px;
+  .actions {
+    .btn {
+      margin: 10px 0 5px;
+      line-height: 30px;
+    }
+  }
 }
 
-.flop {
-  margin-top: 10px;
+.message {
+  background: #eee;
 }
 
 footer, .footer {
