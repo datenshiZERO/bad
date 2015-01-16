@@ -1,4 +1,29 @@
 @import "bootstrap";
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+body {
+}
+
+.card-value {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+}
+
+.clubs {
+  color: green;
+}
+
+.hearts {
+  color: red;
+}
+
+.spades {
+  color: black;
+}
+
+.diamonds {
+  color: blue;
+}
 
 .bordered {
   border: 1px solid #ddd;
@@ -7,14 +32,25 @@
   margin-bottom: 6px;
   .actions {
     .btn {
-      margin: 10px 0 5px;
+      margin: 5px 0;
       line-height: 30px;
     }
   }
 }
+.bordered.full-hand {
+  border: 2px solid lightblue;
+}
+
+.enemy {
+  border: 1px solid #fbb;
+}
 
 .message {
   background: #eee;
+}
+
+.progress {
+  margin-bottom: 10px;
 }
 
 footer, .footer {

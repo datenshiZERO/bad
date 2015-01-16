@@ -15,51 +15,61 @@
     %meta{:content => "200", :property => "og:image:height"}/
     %link{:href => "./favicon.ico", :rel => "shortcut icon"}/
     %link{:href => stylesheet_path("app"), :rel => "stylesheet", :type => "text/css"}/
-    %script{:type => "text/javascript", :src => javascript_path("app")}
   %body
-    .navbar.navbar-static-top.navbar-default
-      .container
-        .navbar-header
-          %button.navbar-toggle{ "type" => "button", "data-toggle" => "collapse", "data-target" => ".navbar-collapse" }
-            %span.sr-only Toggle navigation
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          %a{ :href => "./", :class => "navbar-brand" } BAd
-        .navbar-collapse.collapse
-          %ul.nav.navbar-nav
-            -#%li{ :class => (controller_name == "events" ? "active" : "") }= link_to "Events", events_url
-
     .container.main-container
+      .row
+        .col-sm-12
+          %h1#screen-title Quest - Sewers
       .row
         .col-sm-6.col-sm-offset-3
           .row
             .col-sm-6
-              .bordered
-                %p meh
+              #player-card.bordered.full-hand
+                %p.text-center
+                  Soldier - 
+                  lvl 
+                  %span.card-value.spades
+                    3&spades;
                 .progress
-                  .progress-bar.progress-bar-success{ style: "width: 100%" } 10
+                  .progress-bar.progress-bar-success{ style: "width: 100%" } 20
             .col-sm-6
-              .bordered
-                %p meh
+              .bordered.enemy
+                %p.text-center
+                  Slime - 
+                  lvl 
+                  %span.card-value.spades
+                    2&spades;
                 .progress
-                  .progress-bar.progress-bar-success{ style: "width: 100%" } 10
+                  .progress-bar.progress-bar-success{ style: "width: 17%" } 2
           .row.flop
             .col-sm-12
               .bordered
                 %p.text-center
-                  %button.btn.btn-info{ type: "button" } 2
-                  %button.btn.btn-danger{ type: "button" } 6
-                  %button.btn.btn-default{ type: "button" } HP JK
-                  %button.btn.btn-default{ type: "button" } HP JK
-                  %button.btn.btn-default{ type: "button" } HP JK
+                  %button.btn.btn-default.enemy{ :type => "button", :"data-toggle" => "modal", :"data-target" => "#enemy-modal" }
+                    %span.card-value.spades
+                      1&spades;
+                  %button.btn.btn-default{ type: "button" } 
+                    %span.card-value.hearts
+                      2&hearts;
+                  %button.btn.btn-default{ :type => "button", :"data-toggle" => "modal", :"data-target" => "#card-modal" }
+                    %span.card-value.clubs
+                      1&clubs;
+                %p.text-center
+                  %button.btn.btn-info{ type: "button" } 0
+                  %button.btn.btn-warning{ type: "button" } 0
+                  &nbsp;
+                  &nbsp;
+                  %button.btn.btn-info{ type: "button" } 3
+                  %button.btn.btn-warning{ type: "button" } 6
           .row
             .col-sm-12
-              .bordered.message
+              #message-log.bordered.message
                 %p
-                  Message line 1
-                  %br
-                  Message line 2
+                  Soldier drew: 
+                  Herbs - 
+                  %span.card-value.clubs
+                    1&clubs;
+                  \...
           .row
             .col-sm-12
               .bordered
@@ -70,11 +80,111 @@
                   %button.btn.btn-primary.btn-lg{ type: "button" } Draw
                   %button.btn.btn-warning.btn-lg{ type: "button" } Attack
 
+      #enemy-modal.modal.fade{ :tabindex => "-1", :role => "dialog", :"aria-hidden" => true }
+        .modal-dialog
+          .modal-content
+            .modal-header
+              Slime - lvl
+              %span.card-value.spades
+                1&spades;
+            .modal-body
+              %p 6 HP - 3 ATK - 0 DEF
+              %p You gained 5 XP and 10 gold for killing this enemy
+
+      #card-modal.modal.fade{ :tabindex => "-1", :role => "dialog", :"aria-hidden" => true }
+        .modal-dialog
+          .modal-content
+            .modal-header
+              Herbs - 
+              %span.card-value.clubs
+                1&clubs;
+            .modal-body
+              Gain 5 health
+
+      #player-modal.modal.fade{ :tabindex => "-1", :role => "dialog", :"aria-hidden" => true }
+        .modal-dialog
+          .modal-content
+            .modal-header
+              Soldier - 
+              lvl 
+              %span.card-value.spades
+                3&spades;
+            .modal-body
+              %p 20 HP - 3 SP - 6 ATK - 2 DEF
+              %p 
+                %strong 2 Pair Hand Bonus!
+                %br
+                +50% ATK
+              %p
+                %em Basic warrior class. High base attack and defense, skills improve both.
+
+      #message-log-modal.modal.fade{ :tabindex => "-1", :role => "dialog", :"aria-hidden" => true }
+        .modal-dialog
+          .modal-content
+            .modal-header
+              Message Log
+            .modal-body
+              %p
+                You drew a Monster Encounter: 
+                %br
+                Slime - lvl
+                %span.card-value.spades
+                  1&spades;
+              %p
+                Soldier attacked Slime for 6 damage. Slime died. 
+                You gained 5 XP and 10 gold.
+
+              %p
+                You drew a Monster Encounter: 
+                %br
+                Slime - lvl
+                %span.card-value.spades
+                  2&spades;
+              %p
+                Soldier attacked Slime for 5 damage. 
+                Slime attacked Soldier for 3 damage. 
+
+              %p
+                Soldier attacked Slime for 5 damage. 
+                Slime attacked Soldier for 3 damage.
+
+              %p
+                Soldier drew: 
+                Salve - lvl
+                %span.card-value.hearts
+                  2&hearts;
+                %br
+                Soldier gained 10 HP.
+                %br
+                %strong 1 Pair Bonus!
+                %br
+                +10% ATK
+
+              %p
+                Soldier drew: 
+                Herbs - 
+                %span.card-value.clubs
+                  1&clubs;
+                %br
+                Herbs have no effect at full HP.
+                %br
+                %strong 2 Pair Hand Bonus!
+                %br
+                +50% ATK
     %footer
       .container
         %p
           &copy; 2014 - 2015
           %a{ :href => "http://bryanbibat.net" } Bryan Bibat
+
+    %script{:type => "text/javascript", :src => javascript_path("app")}
+    :javascript
+      $('#player-card').click(function () {
+        $('#player-modal').modal();
+      });
+      $('#message-log').click(function () {
+        $('#message-log-modal').modal();
+      });
 
     - if ENV['RACK_ENV'] == 'production'
       / Piwik
