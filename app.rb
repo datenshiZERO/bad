@@ -18,4 +18,16 @@ class App < Sinatra::Base
   get '/' do
     haml :index
   end
+
+  get '/main' do
+    haml :main
+  end
+
+  get '/title' do
+    haml :title
+  end
+
+  get '/deck' do
+    haml :deck
+  end
 end
