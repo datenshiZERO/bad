@@ -1,8 +1,20 @@
 @import "bootstrap";
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
+@font-face {
+font-family:"RPG Icons";
+  src:
+    font-url("rpg-icons.eot?") format("eot"),
+    font-url("rpg-icons.woff") format("woff"),
+    font-url("rpg-icons.ttf") format("truetype"),
+    font-url("rpg-icons.svg#rpg-icons") format("svg");
+  font-weight:normal;
+  font-style:normal;
+}
+
 body {
 }
+
 .jumbotron {
   margin-top: 10px;
   text-align: center;
@@ -41,6 +53,7 @@ body {
     }
   }
 }
+
 .bordered.full-hand {
   border: 2px solid lightblue;
 }
@@ -55,6 +68,14 @@ body {
 
 .progress {
   margin-bottom: 10px;
+}
+
+.rpgicon {
+  font-family: "RPG Icons";
+}
+
+.rpgicon-hp:before {
+  content: "\e1d8";
 }
 
 footer, .footer {
