@@ -8,6 +8,8 @@ class App < Sinatra::Base
 
   Sprockets::Helpers.prefix = "/bad"
   register Sinatra::AssetPipeline
+  sprockets.append_path HandlebarsAssets.path
+  HandlebarsAssets::Config.ember = true
 
   if defined?(RailsAssets)
     RailsAssets::load_paths.each do |path|

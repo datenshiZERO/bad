@@ -4,3 +4,4 @@
 //= require 'ember'
 //= require 'bootstrap'
 //= require 'game'
+//= require_tree './templates'

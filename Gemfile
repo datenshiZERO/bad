@@ -12,6 +12,7 @@ gem 'haml'
 gem 'puma'
 gem 'uglifier'
 gem 'mina'
+gem 'handlebars_assets'
 
 group :development do
   gem 'guard'

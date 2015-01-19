@@ -34,6 +34,11 @@ GEM
       puma
     haml (4.0.6)
       tilt
+    handlebars_assets (0.18)
+      execjs (>= 1.2.9)
+      multi_json
+      sprockets (>= 2.0.3)
+      tilt
     hike (1.2.3)
     hitimes (1.2.2)
     http_parser.rb (0.6.0)
@@ -116,6 +121,7 @@ DEPENDENCIES
   guard-livereload
   guard-puma
   haml
+  handlebars_assets
   mina
   puma
   rack-livereload
