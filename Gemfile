@@ -5,6 +5,7 @@ gem 'sinatra'
 gem 'sinatra-asset-pipeline', require: 'sinatra/asset_pipeline'
 
 gem 'rails-assets-jquery'
+gem 'rails-assets-ember'
 gem 'rails-assets-bootstrap'
 
 gem 'haml'

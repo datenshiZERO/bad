@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="IE=Edge,chrome=1" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>BAd</title>
+    <meta name="description"/>
+    <meta property="og:title"/>
+    <meta property="og:description"/>
+    <meta content="website" property="og:type"/>
+    <meta content="http://games.bryanbibat.net/bad/" property="og:url"/>
+    <meta content="<%= image_path("opengraph.png") %>" property="og:image"/>
+    <meta content="200" property="og:image:width"/>
+    <meta content="200" property="og:image:height"/>
+    <link href="./favicon.ico" rel="shortcut icon">
+    <link href="<%= stylesheet_path("app") %>" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+
+    <script data-template-name="application" type="text/x-handlebars">
+      {{outlet}}
+      <footer>
+        <div class="container">
+          <p>
+            &copy; 2014 - 2015
+            <a href="http://bryanbibat.net">Bryan Bibat</a>
+          </p>
+        </div>
+      </footer>
+    </script>
+
+    <script data-template-name="index" type="text/x-handlebars">
+      <div class="container main-container">
+        <div class="jumbotron">
+          <h1 id="screen-title">Bootstrap Adventure</h1>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3">
+            <div class="row">
+              <div class="col-sm-12">
+                <br/>
+                <p class="text-center actions">
+                  {{#link-to 'main' class="btn btn-default btn-lg"}}Start Game{{/link-to}}
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <p class="text-center actions">
+                  <br/>
+                  <button class="btn btn-default" type="button">Options </button>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </script>
+
+    <script data-template-name="main" type="text/x-handlebars">
+      <div class="navbar navbar-static-top navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="./">BAd</a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active">
+                <a href="#">Home</a>
+              </li>
+              <li>
+                <a href="#">Deck</a>
+              </li>
+              <li>
+                <a href="#">Shop</a>
+              </li>
+              <li>
+                <a href="#">Etc.</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="container main-container">
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3">
+            <div class="row">
+              <div class="col-xs-12">
+                <br/>
+                <p class="text-center actions">
+                  <button class="btn btn-primary btn-lg" type="button">Quests</button>
+                </p>
+              </div>
+              <div class="col-xs-12">
+                <br/>
+                <p class="text-center actions">
+                  <button class="btn btn-info btn-lg" type="button">Deck</button>
+                </p>
+              </div>
+              <div class="col-xs-12">
+                <br/>
+                <p class="text-center actions">
+                  <button class="btn btn-success btn-lg" type="button">Shop</button>
+                </p>
+              </div>
+              <div class="col-xs-12">
+                <br/>
+                <p class="text-center actions">
+                  <button class="btn btn-default btn-lg" type="button">Etc.</button>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </script>
+
+    <script src="<%= javascript_path("app") %>" type="text/javascript"></script>
+    <% if ENV['RACK_ENV'] == 'production' %>
+      <!-- Piwik -->
+      <script>
+        
+        var _paq = _paq || [];
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+          var u=(("https:" == document.location.protocol) ? "https" : "http") + "://analytics.bryanbibat.net/";
+          _paq.push(['setTrackerUrl', u+'piwik.php']);
+          _paq.push(['setSiteId', 12]);
+          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+          g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+        })();
+
+      </script>
+      <noscript>
+        <p>
+          <img src="http://analytics.bryanbibat.net/piwik.php?idsite=12" style="border:0;"/>
+        </p>
+      </noscript>
+      <!-- End Piwik Code -->
+    <% end %>
+  </body>
+</html>

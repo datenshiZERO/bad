@@ -1,3 +1,6 @@
 //= require 'persist'
 //= require 'jquery'
+//= require 'handlebars'
+//= require 'ember'
 //= require 'bootstrap'
+//= require 'game'
